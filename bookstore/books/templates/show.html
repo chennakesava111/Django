@@ -9,10 +9,20 @@
 </head>
 <body>
     <section class="py-10">
-        <h1 class="text-center text-4xl">{{ book.title }}</h1>
+        <h1 class="text-center text-4xl">{{ book.title }}</h1><br>
         <div class="flex justify-center">
             <img src="{{ book.thumbnailUrl }}" width="200">
         </div>
+        <h1 style="font-weight: bold;">About</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel atque explicabo qui dolor, voluptate numquam cum nihil sequi suscipit, dolorum consequuntur reiciendis quisquam porro sapiente nesciunt, ducimus optio fugiat ipsam.</p>
+        <br>
+        <h1 style="font-weight: bold;">Pages</h1>
+        <p>Total {{ book.pageCount }} pages</p>
+        <br>
+        <h1 style="font-weight: bold;">Author</h1>
+        <p>{{ book.authors|join:", "}}</p>
+        <br>
+        <h1 style="font-weight: bold;">Description</h1>
         <p>{{ book.shortDescription }}</p>
         <p>{{ book.longDescription }}</p>
     </section>
