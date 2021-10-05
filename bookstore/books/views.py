@@ -1,7 +1,7 @@
 from books.models import Book, Review
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import ListView, DetailView
-
+from django.core.files.storage import FileSystemStorage
 
 class BookListView(ListView):
     def get_queryset(self):
@@ -15,6 +15,7 @@ def author(request,author):
 
 def review(request, id):
     if request.user.is_authenticated:
+        fs = FileSystemStorage()
         body = request.POST['review']
         newReview = Review(body=body, book_id=id, user=request.user)
         newReview.save()
